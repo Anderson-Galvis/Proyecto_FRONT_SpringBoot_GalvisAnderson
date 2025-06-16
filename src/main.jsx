@@ -1,29 +1,43 @@
-// src/main.jsx
+// src/main.jsx (Versión Completa y Actualizada)
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import App from './App.jsx';
+// Páginas públicas
 import HomePage from './pages/HomePage.jsx';
-import DashboarPage from './pages/DashboarPage.jsx';
+import RegisterPage from './pages/RegisterPage.jsx'; // 1. IMPORTADO AQUÍ
+
+// Rutas protegidas
+import DashboardPage from './pages/DashboardPage.jsx';
+import ProtectedRoute from './auth/ProtectedRoute.jsx';
+
 import './index.css';
 
-// Aquí definimos nuestras rutas
 const router = createBrowserRouter([
+  // RUTAS PÚBLICAS
   {
     path: '/',
     element: <HomePage />,
-    // Aquí podríamos poner una página de error en el futuro
   },
   {
-    path: '/dashboard',
-    element: <DashboarPage />,
+    path: '/register', // 2. AÑADIDO AQUÍ
+    element: <RegisterPage />,
   },
+
+  // RUTAS PROTEGIDAS
+  {
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <DashboardPage />,
+      },
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* En lugar de renderizar <App />, ahora proveemos nuestro router */}
     <RouterProvider router={router} />
   </React.StrictMode>
 );
