@@ -1,0 +1,11 @@
+.detalle-container {
+    padding: 20px;
+  }
+  .detalle-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .detalle-container li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }

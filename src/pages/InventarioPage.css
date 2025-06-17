@@ -1,0 +1,19 @@
+.inventario-container {
+    padding: 20px;
+  }
+  
+  .lotes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .lotes-table th, .lotes-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .lotes-table th {
+    background-color: #f2f2f2;
+  }
