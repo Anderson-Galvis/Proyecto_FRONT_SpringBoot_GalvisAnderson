@@ -1,0 +1,22 @@
+.nuevo-pedido-container {
+    padding: 20px;
+  }
+  
+  .columnas {
+    display: flex;
+    gap: 30px; /* Espacio entre las columnas */
+  }
+  
+  .columna-productos, .columna-carrito {
+    flex: 1; /* Cada columna ocupa la mitad del espacio */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .columna-productos li, .columna-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Layouts
-import SharedLayout from './components/SharedLayout.jsx'; // <-- 1. IMPORTA EL LAYOUT
+import SharedLayout from './components/SharedLayout.jsx';
 
 // Páginas públicas
 import HomePage from './pages/HomePage.jsx';
@@ -14,6 +14,7 @@ import RegisterPage from './pages/RegisterPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
 import InventarioPage from './pages/InventarioPage.jsx';
 import LoteDetallePage from './pages/LoteDetallePage.jsx';
+import NuevoPedidoPage from './pages/NuevoPedidoPage.jsx'; // <-- 1. IMPORTA LA NUEVA PÁGINA
 import ProtectedRoute from './auth/ProtectedRoute.jsx';
 
 import './index.css';
@@ -25,16 +26,15 @@ const router = createBrowserRouter([
 
   // RUTAS PROTEGIDAS (ESTA ES LA NUEVA ESTRUCTURA)
   {
-    element: <ProtectedRoute />, // 1. Primero verifica si está logueado
+    element: <ProtectedRoute />,
     children: [
       {
-        element: <SharedLayout />, // 2. Si está logueado, muestra el layout con la Navbar
+        element: <SharedLayout />,
         children: [
-          // 3. Dentro del layout, muestra la página correspondiente
           { path: '/dashboard', element: <DashboardPage /> },
           { path: '/inventario', element: <InventarioPage /> },
           { path: '/inventario/:id', element: <LoteDetallePage /> },
-          // { path: '/pedidos', element: <PedidosPage /> }, // <-- Aquí irían las demás rutas protegidas
+          { path: '/nuevo-pedido', element: <NuevoPedidoPage /> }, // <-- 2. AÑADE LA NUEVA RUTA AQUÍ
         ]
       }
     ]
